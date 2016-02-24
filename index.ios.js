@@ -2,7 +2,6 @@ import React, {
     AppRegistry,
     Component,
     StyleSheet,
-    Text,
     View
 } from 'react-native';
 
@@ -15,7 +14,7 @@ class Weekdays extends Component {
 
         for (let i = 0; i < 7; i++) {
             let day = Moment().add(i, 'days').format('dddd');
-            daysArray.push(<DayItem day={day} daysUntil={i} />);
+            daysArray.push(<DayItem key={i} day={day} daysUntil={i} />);
         }
 
         return daysArray;
@@ -23,7 +22,6 @@ class Weekdays extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Days of the week</Text>
                 {this.getDays()}
             </View>
         );
